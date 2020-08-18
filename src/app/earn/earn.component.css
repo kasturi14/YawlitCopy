@@ -1,0 +1,373 @@
+.wrapper {
+    font-family: Wavehaus-Bk;
+    padding: 0 10%;
+}
+
+@media(max-width: 520px) {
+    .wrapper {
+        padding: 0 3%;
+        margin-top: 10px;
+    }
+}
+
+
+/* control carousel */
+
+.prevcontrol>a {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.nextcontrol>a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* carousel page 1 */
+
+.images {
+    text-align: center;
+}
+
+.img1 {
+    display: block;
+    width: 90%;
+}
+
+.img2 {
+    display: none;
+    width: 100%;
+}
+
+@media(max-width: 650px) {
+    .img1 {
+        display: none;
+    }
+    .img2 {
+        display: block;
+    }
+}
+
+
+/* Carousel Page 2 */
+
+.page1 {
+    padding: 5%;
+    padding-top: 3%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.page1>.head-text>p {
+    font-size: 28px;
+    font-family: Wavehaus-SB;
+    margin-top: -25px;
+}
+
+.page1>.points {
+    text-align: center;
+    width: 100%;
+}
+
+.page1>.points>.subpoints {
+    text-align: left;
+    margin: 0 auto;
+}
+
+.page1>.points>.subpoints>ul {
+    padding: 0;
+    list-style-image: url("https://img.icons8.com/material-two-tone/24/000000/double-tick.png");
+}
+
+.page1>.points>.subpoints>ul>li>p {
+    margin-left: 5px;
+}
+
+.subpoints>.row>.column>img {
+    height: 70px;
+}
+
+@media(max-width: 768px) {
+    .subpoints>.row>.column>img {
+        height: 50px;
+    }
+    .salarybtn {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 468px) {
+    .salarybtn {
+        font-size: 14px;
+    }
+}
+
+.page1links {
+    color: #FFA600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.pl1 {
+    font-size: 60px;
+    padding: 0;
+    font-family: Wavehaus-EB;
+}
+
+.page1links:hover {
+    color: rgb(255, 136, 0);
+    transition: 0.25s;
+}
+
+.r1,
+.r2 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.row {
+    padding: 1%;
+}
+
+.row>.column {
+    padding: 0 3%;
+}
+
+.row1>.column {
+    width: 33%;
+}
+
+.row2>.column {
+    width: 50%;
+}
+
+.r1text {
+    text-align: center;
+}
+
+.r2>.r1text {
+    width: 70%;
+}
+
+.yellowtext {
+    color: #FFA600;
+    text-decoration: none;
+}
+
+@media(max-width: 710px) {
+    .row .column {
+        width: 100%;
+    }
+    .r1text {
+        text-align: justify;
+    }
+}
+
+@media(max-width: 700px) {
+    .page1 {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 400px) {
+    .page1 {
+        font-size: 13px;
+        padding: 0;
+    }
+    .row1,
+    .row2 {
+        padding-right: 5%;
+    }
+    .page1>.head-text {
+        margin-top: 10%;
+    }
+    .page1>.head-text>p {
+        font-size: 18px;
+    }
+    .pl1 {
+        font-size: 38px;
+    }
+    .r1text {
+        font-size: 14px;
+    }
+}
+
+
+/* Page 3 */
+
+.page3 {
+    padding: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+mat-slider,
+input {
+    width: 100%;
+}
+
+.mat-accent .mat-slider-thumb {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: solid 2px gray;
+    bottom: -20px;
+    right: -20px;
+}
+
+.sd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1%;
+}
+
+.secondp {
+    font-size: 70%;
+}
+
+.text {
+    width: 50%;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.widget {
+    width: 50%;
+    padding: 0 5%;
+    text-align: left;
+}
+
+@media(max-width: 600px) {
+    .text,
+    .widget {
+        width: 100%;
+        text-align: center;
+    }
+    .sd {
+        margin-top: 3%;
+    }
+}
+
+@media(max-width: 400px) {
+    .text,
+    .widget {
+        font-size: 16px;
+    }
+}
+
+
+/* Calculate Button */
+
+.fixedbtnstyle {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.fixedbtnstyle:hover {
+    background-color: black;
+    color: white;
+    transition: 0.25s;
+}
+
+
+/* Partner type Slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 117px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #aaa;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: rgb(250, 165, 8, 0.9);
+    ;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(84px);
+    -ms-transform: translateX(84px);
+    transform: translateX(84px);
+}
+
+
+/*------ ADDED CSS ---------*/
+
+.on {
+    display: none;
+}
+
+.on,
+.off {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider .on {
+    display: block;
+}
+
+input:checked+.slider .off {
+    display: none;
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/*--------- END --------*/

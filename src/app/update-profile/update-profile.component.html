@@ -1,0 +1,55 @@
+<!-- Update Profile page -->
+<div class="wrapper">
+    <div class="wrap-contain">
+        <img src="../../assets/img/logo1.png" alt="">
+        <div class="box">
+            <h2>Update Profile</h2>
+            <!-- Update profile form -->
+            <form #f2="ngForm" (ngSubmit)="saveUpdate(f2.value)">
+                <!-- First Name -->
+                <div class="inputBox">
+                    <input class="form-control" #first="ngModel" spellcheck="false" [(ngModel)]="updated.first" name="first" type="text" id="first" required>
+                    <label for="first">Enter your first name</label>
+                    <div class="alert alert-danger" *ngIf="first.touched && first.invalid">
+                        Required
+                    </div>
+                </div>
+                <!-- Last Name -->
+                <div class="inputBox">
+                    <input class="form-control" #second="ngModel" spellcheck="false" [(ngModel)]="updated.second" name="second" type="text" id="second" required>
+                    <label for="second">Enter your last name</label>
+                    <div class="alert alert-danger" *ngIf="second.touched && second.invalid">
+                        Required
+                    </div>
+                </div>
+                <!-- Phone Number -->
+                <div class="inputBox">
+                    <input class="form-control" #Phone="ngModel" spellcheck="false" [(ngModel)]="updated.Phone" name="Phone" type="text" id="Phone" required>
+                    <label for="Phone">Enter your phone number</label>
+                    <div class="alert alert-danger" *ngIf="Phone.touched && Phone.invalid">
+                        Required
+                    </div>
+                </div>
+                <!-- Email address -->
+                <div class="inputBox">
+                    <input class="form-control" #email="ngModel" spellcheck="false" [(ngModel)]="updated.email" name="email" type="email" id="email" required>
+                    <label for="email">Enter your email id</label>
+                    <div class="alert alert-danger" *ngIf=" email.touched && email.invalid">
+                        Required
+                    </div>
+                </div>
+                <!-- Address -->
+                <div class="inputBox">
+                    <input class="form-control" #Address="ngModel" spellcheck="false" [(ngModel)]="updated.Address" name="Address" type="text" id="Address" required>
+                    <label for="Address">Enter your Address</label>
+                    <div class="alert alert-danger" *ngIf="Address.touched && Address.invalid">
+                        Required
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <input type="submit" class="btn btn-default" [disabled]="!f2.valid" value="Submit">
+                <br><br>
+            </form>
+        </div>
+    </div>
+</div>

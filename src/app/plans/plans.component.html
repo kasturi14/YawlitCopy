@@ -1,0 +1,531 @@
+<!-- Plans Tab -->
+<div class="wrapcontainer">
+    <div id="carouselExampleIndicators" class="carousel slide" data-interval=false data-touch=false data-keyborad=false>
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <!-- Carousel Page 1 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active ">
+                <div class="steps step1">
+                    <p><img src="../../assets/img/check-circle.svg"> STEP 1 OF 4</p>
+                    <!-- Wash Criteria -->
+                    <div class="substepdiv">
+                        <p class="heading">Choose Your Wash Plan</p>
+                        <div class="divul">
+                            <ul>
+                                <li>
+                                    <p>
+                                        <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+                                        No extra charges.
+                                    </p>
+                                </li>
+                                <li>
+
+                                    <p>
+                                        <fa-icon [icon]="faChevronCircleRight"></fa-icon> No commitments. Cancel anytime.
+                                    </p>
+                                </li>
+                                <li>
+
+                                    <p>
+                                        <fa-icon [icon]="faChevronCircleRight"></fa-icon> Regular service. Regular price.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Types -->
+                    <div class="container">
+                        <p style="font-weight: bold;">Select your vehicle type below</p>
+                        <div class="inner-contain">
+                            <ul class="row step1vehicleul">
+                                <!-- Bike -->
+                                <li class="column colstep">
+                                    <a class="vehiclelink" (click)="setBike()" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <div class="image">
+                                            <img src="../../assets/img/bike-transparent.png">
+                                        </div>
+                                        <p>Bike</p>
+                                    </a>
+                                </li>
+                                <!-- Hatchback -->
+                                <li>
+                                    <a class="vehiclelink" (click)="setHatchback()" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <div class="image">
+                                            <img src="../../assets/img/hatchback-transparent.png">
+                                        </div>
+                                        <p>Hatchback</p>
+                                    </a>
+                                </li>
+                                <!-- Sedan -->
+                                <li>
+                                    <a class="vehiclelink" (click)="setSedan()" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <div class="image">
+                                            <img src="../../assets/img/sedan-transparent.png">
+                                        </div>
+                                        <p>Sedan</p>
+                                    </a>
+                                </li>
+                                <!-- SUV -->
+                                <li>
+                                    <a class="vehiclelink" (click)="setSUV()" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <div class="image">
+                                            <img src="../../assets/img/suv-transparent.png">
+                                        </div>
+                                        <p>SUV</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Page 2 -->
+            <div class="carousel-item ">
+                <div class="steps step2">
+                    <p><img src="../../assets/img/check-circle.svg"> STEP 2 OF 4</p>
+                    <div class="substep2">
+                        <p>Wash Packages</p>
+
+                        <!-- Simple/Premium Slider -->
+                        <div class="mainsliding">
+                            <div class="sliding">
+                                <label class="switch">
+                                    <input type="checkbox" id="togBtn" (click)="slider()">
+                                    <div class="slider round">
+                                        <!--ADDED HTML -->
+                                        <span class="on" style="font-family: Wavehaus-Bk;">PREMIUM</span>
+                                        <span class="off" style="font-family: Wavehaus-Bk;">SIMPLE</span>
+                                        <!--END-->
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Horizontal Slider displaying plans -->
+                        <!-- The plan cards-->
+                        <div class="grid-container">
+                            <main class="grid-item main">
+                                <div class="items">
+                                    <!-- Iterating over the all the plans stored in the plans object-->
+                                    <ng-container *ngFor="let p of plans$|async; let i=index">
+                                        <div class="item">
+                                            <div class="card">
+                                                <div class="head-card">
+                                                    <div class="card-image">
+                                                        <img src="{{p.imageUrl}}">
+                                                    </div>
+                                                    <div class="text">
+                                                        <p>{{p.PlanName}}</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="card-body plansstep2card">
+                                                    <p>Price : Rs. {{p.Price}}</p>
+                                                    <p>Plan Validity: {{p.Validity}} days</p>
+                                                    <p class="card-text">Total wash days: {{p.WashDays}}</p>
+                                                    <div class="main-text-ul">
+                                                        <p>Plan inclusions: </p>
+                                                        <ul>
+                                                            <li>
+                                                                <a><img src="https://img.icons8.com/material-two-tone/24/000000/double-tick.png">
+                                                                    <p>{{p.Plan1}}</p>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a><img src="https://img.icons8.com/material-two-tone/24/000000/double-tick.png">
+                                                                    <p>{{p.Plan2}}</p>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a><img src="https://img.icons8.com/material-two-tone/24/000000/double-tick.png">
+                                                                    <p>{{p.Plan3}}</p>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="buttons">
+                                                        <button href="#" class="btn btn1 btn-dark fixedbtnstyle seemore" (click)="openpage2modal(longContent)">
+                                                            See more
+                                                        </button>
+                                                        <button class="btn btn2 btn-dark fixedbtnstyle" href="#carouselExampleIndicators" data-slide="next" (click)="selectedOrder(p)">Buy Now</button>
+                                                    </div>
+
+
+                                                    <!-- the see more modal-->
+                                                    <ng-template #longContent let-modal class="page2modal">
+                                                        <div class="modal-header">
+                                                            <div class="modheader">
+                                                                <div class="image">
+                                                                    <img src="{{p.imageUrl}}">
+                                                                </div>
+                                                                <div class="texthead">
+                                                                    <p class="modal-title page2modalheader">
+                                                                        {{p.PlanName}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-body page2modalbody">
+                                                            <p>Price : Rs. {{p.Price}}</p>
+                                                            <p>Plan Validity: {{p.Validity}} days</p>
+                                                            <p>Total wash days: {{p.WashDays}}</p>
+                                                            <div class="main-text-ul">
+                                                                <p>Plan inclusions: </p>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a>
+                                                                            <p>{{p.Plan1}}</p>
+                                                                        </a>
+                                                                    </li>
+                                                                    <hr>
+                                                                    <li>
+                                                                        <a>
+                                                                            <p>{{p.Plan2}}</p>
+                                                                        </a>
+                                                                    </li>
+                                                                    <hr>
+                                                                    <li>
+                                                                        <a>
+                                                                            <p>{{p.Plan3}}</p>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                                                        </div>
+                                                    </ng-template>
+
+                                                </div>
+                                            </div>
+                                            <div *ngIf="(i+1) % 2 === 0"></div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </main>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="prevcontrol">
+                    <a class="cccp" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <fa-icon [icon]="faCaretLeft" transform="grow-35"></fa-icon>
+                    </a>
+                </div>
+            </div>
+
+
+            <!--Chevks if the user is logged in as a customer to open this slide-->
+            <!--PAGE 3 OF 4-->
+            <div *ngIf="CustomerKey" class="carousel-item ">
+                <div class="steps step3">
+                    <p><img src="../../assets/img/check-circle.svg"> STEP 3 OF 4</p>
+                    
+                    <div class="form-container">
+                        <div class="substep3">
+                            <!--The check Pincode form-->
+                            <form #fnew="ngForm" (ngSubmit)="checkPincode(fnew.value.Pincode)">
+                                <div class="form-group row pincodediv">
+                                    <div class="input-group mb-3">
+
+                                        <input #Pincode="ngModel" ngModel name="Pincode" id="Pincode" type="string" class="form-control pincodeinput" placeholder="Enter your pincode to check if we are servicable there" aria-label="Enter pincode" aria-describedby="basic-addon2" required minlength="6"
+                                            maxlength="6" [ngbTooltip]="tipContent">
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2">
+                                                <button class="btn checkbtn">
+                                                    Check
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <ng-template #tipContent><small>Enter your pincode to check if we are servicable
+                                            there.</small></ng-template>
+                                </div>
+                                <!--Pinocde validators-->
+                                <p class="alert alert-danger" *ngIf="Pincode.touched && Pincode.invalid?resetMess():false">;</p>
+                                <p class="alert alert-danger" *ngIf="Pincode.touched && Pincode.invalid">Pincode is Required
+                                </p>
+                                <p class="alert alert-danger" *ngIf="Pincode.hasError('minlength')">
+                                    Your pin must be at least 6 characters long.</p>
+                                <p class="alert alert-danger" *ngIf="Pincode.hasError('minlength')?resetMess():false">;</p>
+                                <p class="alert alert-danger" *ngIf="Pincode.hasError('maxlength')?resetMess():false">;</p>
+                                <p class="alert alert-danger" *ngIf="Pincode.hasError('maxlength')">
+                                    Your pin cannot exceed 6 characters.</p>
+                            </form>
+                            <!-- Displaying the check message-->
+                            <p *ngIf="message">
+                                <ngb-alert [dismissible]="false">
+                                    <strong>{{message}}</strong>
+                                </ngb-alert>
+                            </p>
+                        </div>
+
+                        <!-- The start date and the end date part-->
+                        <div class="selectday">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 coldate3 coldatelabel">
+                                        <p class="labelpage3">SELECT START DATE<a class="redstar">*</a></p>
+                                    </div>
+                                    <ng-template #startDateTip>
+                                        Select the starting date of your plan
+                                    </ng-template>
+                                    <div class="col-sm-8  col-xs-12 coldate3">
+                                        <div class="ssd">
+                                            <input [ngbTooltip]="startDateTip" name="startDate" #startDate="ngModel" ngModel class="form-control" type="date" [min]="minDate" [max]="maxDate" [(ngModel)]="setInitial" (change)="onchangeDate($event.target.value)">
+                                            <p>To</p>
+                                            <input name="endDate" #endDate="ngModel" ngModel class="form-control" type="date" [min]="minDate" [max]="maxDate" disabled [(ngModel)]="endPlanDate">
+                                            <ng-template #endDateTip>
+                                                <small>This is the ending date of your plan</small>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- The day , time selection and the Reg Num form-->
+                                <form #final="ngForm" (ngSubmit)="finalForm(final.value)">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12 coldate3 coldatelabel">
+                                            <p class="labelpage3">REGISTRATION NUMBER<a class="redstar">*</a></p>
+                                        </div>
+                                        <div class="col-sm-8  col-xs-12 coldate3">
+                                            <div class="form-group row pincodediv">
+                                                <div class="input-group mb-3">
+                                                    <input #RegNum="ngModel" ngModel name="RegNum" id="RegNum" type="string" class="form-control pincodeinput" placeholder="Enter the registration number of the vehicle" aria-label="Enter registration number" aria-describedby="basic-addon2" required [ngbTooltip]="RegContent"
+                                                        oninput="this.value = this.value.toUpperCase()">
+                                                </div>
+                                            </div>
+                                            <p class="alert alert-danger" *ngIf="RegNum.touched && RegNum.invalid">
+                                                Registration Number is Required</p>
+                                            <ng-template #RegContent><small>Enter the Registration Number of Your
+                                                    Vehicle.</small></ng-template>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12 colday3 coldaylabel">
+                                            <p class="labelpage3">SELECT DAY AND TIME<a class="redstar">*</a></p>
+                                        </div>
+                                        <div class="col-sm-8 col-xs-12 colday3">
+                                            <div class="dscontain">
+                                                <div class="dscontainsmall">
+                                                    <div class="ds">
+                                                        <label>
+                                                            <p>DAY 1:</p>
+                                                        </label>
+                                                        <select [ngbTooltip]="slot1Tip" class="ds-select form-control" name="selectday1" ngModel #selectDay1="ngModel" [(ngModel)]="selectedDay1.id" (change)="onSelect($event.target.value)" required>
+                                                            <option *ngFor="let day1 of D1array" value={{day1.id}}>
+                                                                {{day1.name}}</option>
+                                                        </select>
+
+                                                        <select [ngbTooltip]="slot1Tip" name="Time1" ngModel #Time1=ngModel class="slt form-control" required>
+                                                            <option value="6 - 7 AM">6 - 7 AM</option>
+                                                            <option value="7 - 8 AM">7 - 8 AM</option>
+                                                            <option value="8 - 9 AM">8 - 9 AM</option>
+                                                            <option value="9 - 10 AM">9 - 10 AM</option>
+                                                            <option value="6 - 7 PM">6 - 7 PM</option>
+                                                            <option value="7 - 8 PM">7 - 8 PM</option>
+                                                            <option value="8 - 9 PM">8 - 9 PM</option>
+                                                            <option value="9 - 10 PM">9 - 10 PM</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <ng-template #slot1Tip>
+                                                        <small> Select your service day 1 of the week and the time slot
+                                                            for the day.</small>
+                                                    </ng-template>
+                                                </div>
+
+                                                <div class="dscontainsmall">
+                                                    <div class="ds">
+                                                        <label>
+                                                            <p>DAY 2:</p>
+                                                        </label>
+                                                        <select [ngbTooltip]="slot2Tip" class="ds-select form-control" name="selectday2" ngModel #selectDay2="ngModel" required>
+                                                            <option value="0">--Select--</option>
+                                                            <option *ngFor="let day2 of D2array " value={{day2.name}}>
+                                                                {{day2.name}}</option>
+                                                        </select>
+                                                        <select [ngbTooltip]="slot2Tip" name="Time2" ngModel #Time2="ngModel" class="slt form-control" required>
+                                                            <option value="6 - 7 AM">6 - 7 AM</option>
+                                                            <option value="7 - 8 AM">7 - 8 AM</option>
+                                                            <option value="8 - 9 AM">8 - 9 AM</option>
+                                                            <option value="9 - 10 AM">9 - 10 AM</option>
+                                                            <option value="6 - 7 PM">6 - 7 PM</option>
+                                                            <option value="7 - 8 PM">7 - 8 PM</option>
+                                                            <option value="8 - 9 PM">8 - 9 PM</option>
+                                                            <option value="9 - 10 PM">9 - 10 PM</option>
+                                                        </select>
+                                                    </div>
+                                                    <ng-template #slot2Tip>
+                                                        <small> Select your service day 2 of the week and the time slot
+                                                            for the day.</small>
+                                                    </ng-template>
+                                                </div>
+
+
+                                                <div class="dscontainsmall">
+                                                    <div class="ds">
+                                                        <label for="Day3">
+                                                            <p>DAY 3:</p>
+                                                        </label>
+                                                        <select [ngbTooltip]="slot3Tip" class="ds-select form-control" name="selectday3" ngModel #selectday3="ngModel" id="Day3" required>
+                                                            <option>Saturday</option>
+                                                            <option>Sunday</option>
+                                                        </select>
+                                                        <select [ngbTooltip]="slot3Tip" name="Time3" ngModel #Time3="ngModel" class="slt form-control" required>
+                                                            <option value="6 - 7 AM">6 - 7 AM</option>
+                                                            <option value="7 - 8 AM">7 - 8 AM</option>
+                                                            <option value="8 - 9 AM">8 - 9 AM</option>
+                                                            <option value="9 - 10 AM">9 - 10 AM</option>
+                                                            <option value="6 - 7 PM">6 - 7 PM</option>
+                                                            <option value="7 - 8 PM">7 - 8 PM</option>
+                                                            <option value="8 - 9 PM">8 - 9 PM</option>
+                                                            <option value="9 - 10 PM">9 - 10 PM</option>
+                                                        </select>
+                                                    </div>
+                                                    <ng-template #slot3Tip>
+                                                        <small> Select your service day 3 of the week and the time slot
+                                                            for the day</small>
+                                                    </ng-template>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- The submit button-->
+                                    <div class="sav" *ngIf="!Glitch;else NextSlide">
+                                        <button class="btn button btn-dark fixedbtnstyle" [disabled]="!final.valid || !fnew.valid || !message || filterdpins?.length==0" type="submit" id="submitdata">Submit</button>
+                                    </div>
+                                    <!-- The cehckout button which takes you to the final page-->
+                                    <ng-template #NextSlide>
+                                        <div class="sav">
+                                            <button class="btn button btn-dark fixedbtnstyle" (click)="setGlitch()" id="submitdata" href="#carouselExampleIndicators" data-slide="next">Click here to Checkout</button>
+                                        </div>
+                                    </ng-template>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="prevcontrol">
+                    <a class="cccp" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <fa-icon [icon]="faCaretLeft" transform="grow-35"></fa-icon>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Carousel page 4 -->
+            <div *ngIf="CustomerKey" class="carousel-item">
+                <div class="steps step4">
+                    <p><img src="../../assets/img/check-circle.svg"> STEP 4 OF 4</p>
+                    <div class="bookingsummary">
+                        <div class="heading3">
+                            <p>Booking Plan Summary</p>
+                        </div>
+
+                        <div class="page4contain">
+                            <!-- Customer Details Box -->
+                            <div class="box box1">
+                                <div class="boxwrap">
+                                    <p>Customer Details</p>
+                                    <div class="head">
+                                        <div class="image">
+                                            <img src="../../assets/img/user.png" alt="">
+                                        </div>
+                                        <!-- customer data is being binded and shown -->
+                                        <!-- customer name -->
+                                        <p>{{appUser?.first}} {{appUser?.second}}</p>
+                                    </div>
+                                    <!-- customer details -->
+                                    <div class="resttext">
+                                        <p><strong>Phone :</strong> {{appUser?.Phone}}</p>
+                                        <p><strong>Address </strong><small>(You can change your address from your
+                                                profile section)</small> : {{appUser?.Address}}</p>
+                                        <p><strong>Vehicle Registered Number :</strong> {{checkOutObj.RegNum}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Plan Details Box -->
+                            <div class="box box2">
+                                <div class="boxwrap">
+                                    <p>Plan Details</p>
+                                    <div class="head">
+                                        <!-- plan details selected are shown -->
+                                        <!-- Plan image -->
+                                        <div class="image">
+                                        </div>
+                                        <!-- Plan name -->
+                                        <p>{{selectedOrderObj.PlanName}}</p>
+                                    </div>
+                                    <!-- plan details -->
+                                    <div class="resttext">
+                                        <p><strong>Your Plan Duration :</strong> {{startDatecheckout}} TO {{endPlanDate}}
+                                        </p>
+                                        <p><strong>Your Appointment Dates :</strong> </p>
+                                        <div class="yad">
+                                            <ul>
+                                                <li><strong>DAY 1 :</strong> {{checkOutObj.selectday1}}, {{checkOutObj.Time1}}
+                                                </li>
+                                                <li><strong>DAY 2 :</strong> {{checkOutObj.selectday2}}, {{checkOutObj.Time2}}
+                                                </li>
+                                                <li><strong>DAY 3 :</strong> {{checkOutObj.selectday3}}, {{checkOutObj.Time3}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- plan price -->
+                                        <p><strong>Total Price :</strong> {{selectedOrderObj.Price}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Modal -->
+                    <ng-template #content let-c="close" let-d="dismiss" class="page4modal">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <p class="modal-title page4modal-head" id="modal-basic-title">Payment Method</p>
+                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="image"><img src="../../assets/img/earn-transparent.png" alt=""></div>
+                            <!-- E-payment Button -->
+                            <div class="confirmbtn">
+                                <a class="btn modalpage4btn" (click)="online($event)">E-Payment</a>
+                                <ng-container class="processing" *ngIf="processingPayment">
+                                    <i class="fa fa-circle-o-notch fa-spin"></i>
+                                </ng-container>
+                                <ng-container *ngIf="!processingPayment">
+                                </ng-container>
+                            </div>
+                            <!-- Cash on wash Button -->
+                            <div class="confirmbtn">
+                                <a class="btn modalpage4btn" (click)="cod()">Cash On Wash</a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <!-- Book this plan button -->
+                    <div class="confirmbtn">
+                        <button class="btn btn-dark fixedbtnstyle" (click)="open(content)">Book this Plan</button>
+                    </div>
+                </div>
+                <!-- Back Button -->
+                <div class="prevcontrol">
+                    <a class="cccp" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <fa-icon [icon]="faCaretLeft" transform="grow-35"></fa-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

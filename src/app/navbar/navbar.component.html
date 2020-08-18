@@ -1,0 +1,127 @@
+<!-- Navbar + rendering the four tabs -->
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="mode.value" position="end">
+        <!-- Close button on sidenav -->
+        <div class="closebtnouter">
+            <button mat-button class="closebtn" (click)="sidenav.toggle()">
+                <fa-icon [icon]="faTimes" transform="grow-4"></fa-icon>
+            </button>
+        </div>
+
+        <!-- Sidenav list items -->
+        <div class="ul-sidenav-container">
+            <ul>
+                <!-- User name -->
+                <li class="hidelink">
+                    <ng-template #anonymousUser>
+                        <a class="nli" routerLink="/signUpFirst" style="color: white; text-decoration: none; margin-right: 15px;">
+                            <img src="../../assets/img/user.png" alt="" height="40"> Sign in
+                        </a>
+                    </ng-template>
+
+                    <div ngbDropdown *ngIf="appUser; else anonymousUser" class=" d-flex flex-row btn-after btn-chn btn-group dropdown right-element">
+                        <div class="dropdown appusername">
+                            <a class="btn appusernamelink" data-toggle="collapse" href="#collapseExamplesidenav" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Hi, {{appUser?.first}} <fa-icon [icon]="faSortDown" transform="up-4"></fa-icon></a>
+                            <div class="collapse sidenavdropslide" id="collapseExamplesidenav">
+                                <div class="sidenavdropslidecard">
+                                    <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/adminmain">Admin</a>
+                                    <a class="dropdown-item" routerLink="/yourplans/">Your Profile</a>
+                                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Other List items -->
+                <li><a href="/" (click)="sidenav.close()">Home</a></li>
+                <li><a href="/plans" (click)="sidenav.close()">Plans</a></li>
+                <li><a href="/earns" (click)="sidenav.close()">Earns</a></li>
+                <li><a href="/services" (click)="sidenav.close()">Services</a></li>
+                <li><a href="/#howWeServe" (click)="sidenav.close()">How We Serve</a></li>
+                <li><a href="/#about" (click)="sidenav.close()">About Us</a></li>
+                <li><a href="/#team" (click)="sidenav.close()">Team</a></li>
+                <li><a href="/#footer" (click)="sidenav.close()">Contact</a></li>
+                <hr class="hrbetween">
+                <p style="color: white;opacity: 0.7; font-size: 75%; font-family: Wavehaus-SB;">Serving At</p>
+                <li>
+                    <a style="color: white;opacity: 1; font-family: Wavehaus-B;">KOLKATA</a>
+                </li>
+            </ul>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- Navbar top -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <!-- Website logo -->
+            <a class="navbar-brand navbar-logo" routerLink="/">
+                <img src="../assets/img/logo1.png" alt="" height="50">
+            </a>
+            <!-- Website name -->
+            <a class="navbar-brand navbarname" routerLink="/">Yawlit</a>
+            <!-- Sidenav Toggler -->
+            <div class="tog tog1 justify-content-end">
+                <button mat-button class="menubtn" (click)="sidenav.toggle()">
+                    <fa-icon [icon]="faBars" transform="grow-4"></fa-icon>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="dropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                </ul>
+
+                <ul class="nav justify-content-right">
+                    <ng-template #anonymousUser>
+                        <li class="nav-item">
+                            <!-- User Icon before user signs in-->
+                            <a class="nav-link" routerLink="/signUpFirst">
+                                <img src="../../assets/img/user.png" alt="" height="40"> Sign in
+                            </a>
+                        </li>
+                    </ng-template>
+
+                    <li class="nav-item mainlink" ngbDropdown *ngIf="appUser; else anonymousUser" class=" d-flex flex-row btn-after btn-chn btn-group dropdown right-element">
+                        <div class="dropdown appusername">
+                            <a ngbDropdownToggle class="nav-link drhov dropdown-toggle mainlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- Username navbar after user signs in -->
+                                <span class="appusername">
+                                    <img src="../../assets/img/user.png" alt="" height="40">
+                                    Hi, {{appUser?.first}}
+                                </span>
+                            </a>
+                            <!-- Dropdown menu -->
+                            <div class="dropdown-menu drhovshow" aria-labelledby="dropdownMenuButton">
+                                <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/adminmain">Admin</a>
+                                <a class="dropdown-item" routerLink="/yourplans/">Your Profile</a>
+                                <a class="dropdown-item x" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Navbar Toggler -->
+                <div class="tog tog2 justify-content-end">
+                    <button mat-button class="menubtn" (click)="sidenav.toggle()">
+                        <fa-icon [icon]="faBars" transform="grow-4"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Not Servicable Section -->
+        <div class="other">
+            <div class="notservicable">
+                <div class="column c1">
+                    <img class="nsimg" src="../../assets/img/notification.png" alt="">
+                </div>
+                <div class="column c2">
+                    <p class="head">Services suspended</p>
+                    <p class="smalltext">In compliance with the Government Advisory, we are temporarily suspending all Yawlit wash services in your city. Selective essentials and masks will be distributed as soon as we resume operations.</p>
+                </div>
+            </div>
+            <!-- Rendering the tabs section -->
+            <app-tabs></app-tabs>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

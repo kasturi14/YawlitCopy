@@ -1,0 +1,254 @@
+/* 
+    IMPORTANT!!!
+        When removing "not serviceable" section, change the margin-top of tabs, that is, uncomment the commented margin-tops 
+*/
+
+
+/* "not servicable" section*/
+
+.notservicable {
+    margin: 0 10%;
+    background-color: #ed1c24;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.notservicable>.c1 {
+    padding: 2% 0 2% 1%;
+}
+
+.nsimg {
+    height: 40px;
+}
+
+.notservicable>.c2 {
+    align-items: center;
+    color: white;
+    padding: 2% 2% 2% 0;
+}
+
+.notservicable>.c2>.head {
+    font-family: Wavehaus-B;
+}
+
+.notservicable>.c2>.smalltext {
+    font-size: 16px;
+}
+
+@media(max-width: 1320px) {
+    .notservicable {
+        margin-top: 8%;
+    }
+}
+
+@media(max-width: 1000px) {
+    .notservicable {
+        margin-top: 10%;
+    }
+}
+
+@media(max-width: 630px) {
+    .notservicable {
+        margin-top: 15%;
+    }
+}
+
+@media(max-width: 520px) {
+    .notservicable {
+        margin: 0 3%;
+        margin-top: 20%;
+    }
+}
+
+@media(max-width: 400px) {
+    .notservicable>.c2>.head {
+        font-size: 16px;
+    }
+    .notservicable>.c2>.smalltext {
+        font-size: 13px;
+    }
+    .notservicable {
+        margin-top: 25%;
+    }
+}
+
+
+/* other navbar */
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbarname {
+    font-family: Wavehaus-B;
+    font-size: 30px;
+}
+
+@media(max-width: 520px) {
+    .navbarname {
+        font-size: 26px;
+    }
+}
+
+mat-sidenav-container {
+    background-color: white;
+}
+
+.example-radio-group {
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
+}
+
+nav {
+    background-color: black;
+    padding: 0 10%;
+    font-family: Wavehaus-Bk;
+}
+
+nav>a,
+nav>div>ul>li>a {
+    color: white;
+}
+
+.other {
+    margin-top: 5%;
+}
+
+.appusername {
+    color: white;
+    cursor: pointer;
+}
+
+.appusername:hover .drhovshow {
+    display: block;
+}
+
+.appusernamelink,
+.appusernamelink:focus {
+    color: white;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.sidenavdropslidecard>a {
+    color: white;
+    padding: 0;
+}
+
+.sidenavdropslidecard {
+    padding: 0;
+    padding-top: 5px;
+    background-color: transparent;
+    border: transparent;
+}
+
+.sidenavdropslidecard>a {
+    padding: 5px 0;
+    color: white;
+}
+
+.tog1,
+.hidelink {
+    display: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background: linear-gradient(90deg, rgba(211, 20, 35, 0.3) 0%, rgba(255, 110, 1, 0.3) 43%, rgba(255, 166, 0, 0.3) 100%);
+    font-family: Wavehaus-SB;
+    color: black;
+}
+
+mat-sidenav {
+    color: white;
+    background-color: rgba(41, 42, 45, 0.95);
+    width: 20%;
+    font-size: 25px;
+}
+
+@media(max-width: 1100px) {
+    mat-sidenav {
+        width: 30%;
+    }
+}
+
+@media(max-width: 992px) {
+    .tog1,
+    .hidelink {
+        display: block;
+    }
+    .tog2 {
+        display: none;
+    }
+    mat-sidenav {
+        width: 40%;
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 500px) {
+    mat-sidenav {
+        width: 70%;
+        font-size: 18px;
+    }
+}
+
+
+/* side nav contents  */
+
+.ul-sidenav-container>ul {
+    padding: 10%;
+    list-style-type: none;
+}
+
+.ul-sidenav-container>ul>li {
+    padding: 3% 0;
+}
+
+.ul-sidenav-container>ul>li>a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.6;
+}
+
+.ul-sidenav-container>ul>li>a:hover {
+    opacity: 1;
+}
+
+.ul-sidenav-container>ul>.hrbetween {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.closebtn {
+    background-color: transparent;
+    border: 2px solid transparent;
+    outline: none;
+    margin: 3% 7%;
+}
+
+.menubtn {
+    background-color: transparent;
+    border: 2px solid transparent;
+    outline: none;
+}
+
+.closebtn,
+.menubtn {
+    filter: invert(100%);
+}
+
+.content-shortcut {
+    position: absolute;
+    opacity: 0;
+    height: 0px;
+    font-size: 1px;
+}

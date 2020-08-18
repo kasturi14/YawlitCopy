@@ -1,0 +1,29 @@
+<!-- First page of Sign Up Process to decide the type of Sign in -->
+<div class="wrapper">
+    <div class="wrap-contain">
+        <!-- Website Logo -->
+        <img src="../../assets/img/logo-black.png" alt="">
+
+        <div class="box">
+            <p>SIGN IN</p><br>
+            <div class="signupoptions">
+                <ul>
+                    <!-- Sign in options -->
+                    <li class="item1">
+                        <button href="" (click)="setCustomer()" class="itemlink btn btn-dark fixedbtnstyle" routerLink="/signUpSecond">
+                            <p>Sign in as a Customer</p>
+                        </button>
+                    </li>
+                    <li class="item2">
+                        <button href="" class="itemlink btn btn-dark fixedbtnstyle" (click)="setPartner()" routerLink="/signUpSecond">
+                            <p>Sign in as a Partner</p>
+                        </button>
+                    </li>
+                    <!-- <li class="item3">
+                        <button href="" routerLink="/signUpSecond"><h6>Sign up as a Business</h6></button>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

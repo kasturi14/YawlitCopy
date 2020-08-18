@@ -1,0 +1,33 @@
+<!-- This is the main page of the admin section -->
+<div class="wrapper">
+    <div class="wrap-contain">
+        <div class="box">
+            <p>Hey! I am {{appUser?.name}} </p><br>
+            <div class="signupoptions">
+                <!-- Admin Operations -->
+                <ul>
+                    <li class="item1">
+                        <a class="itemlink i1" routerLink="/viewOrders">
+                            <p>View Orders</p>
+                        </a>
+                    </li>
+                    <li class="item1">
+                        <a class="itemlink i1" routerLink="/adminplans">
+                            <p>Plans</p>
+                        </a>
+                    </li>
+                    <li class="item2">
+                        <a class="itemlink" routerLink="/adminservices">
+                            <p>Services</p>
+                        </a>
+                    </li>
+                    <li class="item3">
+                        <a class="itemlink" routerLink="/adminpincode">
+                            <p>Pincode</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

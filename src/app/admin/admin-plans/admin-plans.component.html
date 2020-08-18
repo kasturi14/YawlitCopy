@@ -1,0 +1,153 @@
+<div class="main-content">
+    <h1>All Plans</h1>
+    <div class="addbtndiv">
+        <button class="addbtn btn btn-dark fixedbtnstyle" routerLink="/adminAddPlans">Add a New Plan</button>
+    </div>
+    <div id="adminplancarousel" class="carousel slide" data-interval=false>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <p style="font-weight: bold;">Select the vehicle type below</p>
+                    <div class="info-help" style="padding-top: 1%;">
+                        <p>Select the type of vehicle to view the plans associated with it</p>
+                    </div>
+                    <div class="inner-contain">
+                        <ul class="row step1vehicleul">
+                            <li class="column colstep">
+                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setBike()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/bike-transparent.png">
+                                    </div>
+                                    <p>Bike</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setHatchback()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/hatchback-transparent.png">
+                                    </div>
+                                    <p>Hatchback</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setSedan()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/sedan-transparent.png">
+                                    </div>
+                                    <p>Sedan</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setSUV()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/suv-transparent.png">
+                                    </div>
+                                    <p>SUV</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h1>All Plans</h1>
+                    <div class="addbtndiv">
+                        <button class="addbtn btn btn-dark fixedbtnstyle" routerLink="/adminAddPlans">Add a New Plan</button>
+                    </div>
+                    <div id="adminplancarousel" class="carousel slide" data-interval=false>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <p style="font-weight: bold;">Select the vehicle type below</p>
+                                    <!-- helper information text -->
+                                    <div class="info-help" style="padding-top: 1%;">
+                                        <p>Select the type of vehicle to view the plans associated with it</p>
+                                    </div>
+                                    <!-- Vehicle Types -->
+                                    <div class="inner-contain">
+                                        <ul class="row step1vehicleul">
+                                            <li class="column colstep">
+                                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setBike()">
+                                                    <div class="image">
+                                                        <img src="../../../assets/img/bike-transparent.png">
+                                                    </div>
+                                                    <p>Bike</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setHatchback()">
+                                                    <div class="image">
+                                                        <img src="../../../assets/img/hatchback-transparent.png">
+                                                    </div>
+                                                    <p>Hatchback</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setSedan()">
+                                                    <div class="image">
+                                                        <img src="../../../assets/img/sedan-transparent.png">
+                                                    </div>
+                                                    <p>Sedan</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="vehiclelink" href="#adminplancarousel" role="button" data-slide="next" (click)="setSUV()">
+                                                    <div class="image">
+                                                        <img src="../../../assets/img/suv-transparent.png">
+                                                    </div>
+                                                    <p>SUV</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Simple and Premium slider -->
+                            <div class="carousel-item">
+                                <div class="mainsliding">
+                                    <div class="sliding">
+                                        <p>Simple</p>
+                                        <input type="checkbox" (click)="slider()" class="switchinput">
+                                        <p>Premium</p>
+                                    </div>
+                                </div>
+                                <p><input #query (keyup)="filterBy(query.value)" type="text" class="form-control" placeholder="Type the name of the plan(its case sensitive)"></p>
+                                <!-- Plans table -->
+                                <div class="table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Plans</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngIf="items$ | async; let items; else loading">
+                                            <!-- Pagination -->
+                                            <tr *ngFor="let p of items|paginate: { itemsPerPage: 5, currentPage: pa }; let i = index">
+                                                <td class="plan-text-td">
+                                                    <div class="plan-text">
+                                                        <p>{{p.payload.val().PlanName}}</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="btns">
+                                                        <button class="updatebtn btn btn-dark fixedbtnstyle" (click)="edit(p.payload.key)">Update</button>
+                                                        <button class="delbtn btn btn-dark fixedbtnstyle" (click)="delete(p.payload.key)">Delete</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <ng-template #loading>Loading&hellip;</ng-template>
+                                    <pagination-controls (pageChange)="pa = $event"></pagination-controls>
+                                </div>
+                                <!-- Back Button -->
+                                <div class="prevcontrol">
+                                    <a class="cccp" href="#adminplancarousel" role="button" data-slide="prev" style="color: black; opacity: 1;">
+                                        <img src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/previous-512.png" alt="" height="20" width="20">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>

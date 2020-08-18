@@ -1,0 +1,200 @@
+h1 {
+    padding: 2% 0;
+}
+
+.addbtndiv {
+    padding-bottom: 30px;
+}
+
+.main-content {
+    text-align: center;
+    width: 100%;
+}
+
+.container>p {
+    font-size: 16px;
+}
+
+
+/* Services table */
+
+table,
+th,
+td {
+    border: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.table {
+    padding: 0 10%;
+    text-align: center;
+    width: 100%;
+    margin-top: 80px;
+}
+
+table {
+    justify-content: center;
+    width: 100%;
+}
+
+.updatebtn {
+    margin: 0 5%;
+    width: 100px;
+}
+
+.delbtn {
+    width: 100px;
+}
+
+.Service-text-td {
+    width: 70%;
+}
+
+@media(max-width: 1000px) {
+    .adminselect>.adminbtns {
+        padding: 0 15%;
+    }
+}
+
+@media(max-width: 768px) {
+    .btns {
+        display: inline-block;
+        text-align: center;
+    }
+    .updatebtn,
+    .delbtn {
+        margin: 0;
+        width: 100%;
+    }
+    .table {
+        padding: 0 5%;
+    }
+    .delbtn {
+        margin: 0;
+        width: 100%;
+    }
+    .updatebtn {
+        margin-bottom: 5%;
+    }
+    .btn {
+        font-size: 13px;
+    }
+    .adminselect>.adminbtns>button {
+        width: 90px;
+    }
+    .adminselect>.adminbtns {
+        padding: 0 10%;
+    }
+}
+
+@media(max-width: 470px) {
+    .adminselect>.adminbtns {
+        padding: 0;
+    }
+}
+
+@media(max-width: 380px) {
+    .adminselect>.adminbtns {
+        flex-wrap: wrap;
+    }
+    .adminselect>.adminbtns>button {
+        margin-top: 10px;
+    }
+}
+
+
+/* vehicle type */
+
+.step1vehicleul {
+    text-align: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3%;
+    list-style-type: none;
+}
+
+.image>img {
+    height: 100px;
+    width: 100px;
+}
+
+.step1vehicleul>li {
+    list-style: none;
+    padding: 0 0%;
+    border: 1px solid rgb(145, 144, 144, 0.7);
+    padding: 20px 30px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.step1vehicleul>li>a {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 150px;
+    line-height: 20px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #262626;
+    transition: 0.5s;
+}
+
+.step1vehicleul>li:hover {
+    background-color: black;
+    transition: 0.25s;
+    color: white;
+}
+
+.step1vehicleul>li:hover a>p {
+    color: white;
+}
+
+@media(max-width: 500px) {
+    .step1vehicleul>li {
+        padding: 10px 20px;
+    }
+}
+
+
+/* back button */
+
+.prevcontrol {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+}
+
+.prevcontrol>a>img {
+    height: 40px;
+    width: 40px;
+}
+
+@media(max-width: 680px) {
+    .prevcontrol {
+        top: 15px;
+        left: 20px;
+    }
+    .prevcontrol>a>img {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+@media(max-width: 510px) {
+    .prevcontrol {
+        top: 0px;
+        left: 20px;
+    }
+    .prevcontrol>a>img {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+@media(max-width: 510px) {
+    .prevcontrol>a>img {
+        height: 20px;
+        width: 20px;
+    }
+}

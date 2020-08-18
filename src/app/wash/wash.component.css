@@ -1,0 +1,22 @@
+.dn {
+    display: block;
+}
+
+.dp {
+    display: none;
+}
+
+.wrapper {
+    padding: 0 10%;
+}
+
+@media(max-width: 520px) {
+    .wrapper {
+        padding: 0 3%;
+    }
+}
+
+.ab {
+    width: 100%;
+    margin: 0;
+}

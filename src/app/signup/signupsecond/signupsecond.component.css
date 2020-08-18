@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/* Recaptcha */
+
+#recaptcha-container {
+    display: inline-block;
+    width: 100%;
+    padding: 5% 0;
+}
+
+
+/* Wrapper */
+
+.wrap-contain>img {
+    height: 230px;
+}
+
+@media(max-width:400px) {
+    .wrap-contain>img {
+        height: 150px;
+    }
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+
+/* Input box */
+
+.box {
+    padding-top: 60px;
+}
+
+.box>p {
+    padding-bottom: 20px;
+    color: #000;
+    text-align: center;
+    font-size: 25px;
+    font-family: Wavehaus-B;
+}
+
+.box .inputBox {
+    position: relative;
+    text-align: center;
+}
+
+.box .inputBox input {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 16px;
+    color: #000;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid grey;
+}
+
+.box .inputBox label {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding: 10px 0px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.box .inputBox input:focus~label,
+.box .inputBox input:valid~label {
+    top: -20px;
+    left: 0;
+    font-size: 15px;
+}
+
+
+/* Continue button */
+
+.continu {
+    background: #000;
+    color: aliceblue;
+    width: 100%;
+}
+
+
+/* Login with google option */
+
+.loginwgoogle {
+    text-align: left;
+}
+
+.loginwgoogle>a {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.loginwgoogle>a:hover {
+    color: rgb(40, 61, 143);
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-control:focus {
+    border-color: white;
+    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0) inset, 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+#lwg {
+    cursor: pointer;
+}
+
+@media(max-width: 400px) {
+    .box>p {
+        font-size: 20px;
+    }
+    .wrapper {
+        width: 85%;
+        padding: 0;
+    }
+    .box .inputBox label {
+        font-size: 90%;
+    }
+    .box .inputBox input:focus~label,
+    .box .inputBox input:valid~label {
+        font-size: 80%;
+    }
+}

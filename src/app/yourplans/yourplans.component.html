@@ -1,0 +1,391 @@
+<!-- Your Profile Page -->
+<!-- Navbar -->
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="mode.value" position="end">
+        <!-- Close button on sidenav -->
+        <div class="closebtnouter">
+            <button mat-button class="closebtn" (click)="sidenav.toggle()">
+                <fa-icon [icon]="faTimes" transform="grow-4"></fa-icon>
+            </button>
+        </div>
+        <!-- Sidenav list items -->
+        <div class="ul-sidenav-container">
+            <ul>
+                <!-- User name -->
+                <li class="hidelink">
+                    <ng-template #anonymousUser>
+                        <a class="nli" routerLink="/signUpFirst" style="color: white; text-decoration: none; margin-right: 15px;">
+                            <img src="../../assets/img/user.png" alt="" height="40"> Sign in
+                        </a>
+                    </ng-template>
+                    <div class="nitdiv mainlink" ngbDropdown *ngIf="appUser; else anonymousUser" class=" d-flex flex-row btn-after btn-chn btn-group dropdown right-element">
+                        <div class="dropdown appusername">
+                            <a class="btn appusernamelink" data-toggle="collapse" href="#collapseExamplesidenav" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Hi, {{appUser?.first}} <fa-icon [icon]="faSortDown" transform="up-4"></fa-icon>
+                              </a>
+                            <div class="collapse sidenavdropslide" id="collapseExamplesidenav">
+                                <div class="sidenavdropslidecard">
+                                    <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/adminmain">Admin</a>
+                                    <a class="dropdown-item" routerLink="/yourplans/">Your Profile</a>
+                                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Other List items -->
+                <li><a href="/" (click)="sidenav.close()">Home</a></li>
+                <li><a href="/plans" (click)="sidenav.close()">Plans</a></li>
+                <li><a href="/earns" (click)="sidenav.close()">Earns</a></li>
+                <li><a href="/services" (click)="sidenav.close()">Services</a></li>
+                <li><a href="/#howWeServe" (click)="sidenav.close()">How We Serve</a></li>
+                <li><a href="/#about" (click)="sidenav.close()">About Us</a></li>
+                <li><a href="/#team" (click)="sidenav.close()">Team</a></li>
+                <li><a href="/#footer" (click)="sidenav.close()">Contact</a></li>
+                <hr class="hrbetween">
+                <p style="color: white;opacity: 0.7; font-size: 75%; font-family: Wavehaus-SB;">Serving At</p>
+                <li><a style="color: white;opacity: 1; font-family: Wavehaus-B;">KOLKATA</a></li>
+            </ul>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- Navbar top -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <!-- Website logo -->
+            <a class="navbar-brand navbar-logo" routerLink="/">
+                <img src="../assets/img/logo1.png" alt="" height="50">
+            </a>
+            <!-- Website name -->
+            <a class="navbar-brand navbarname" routerLink="/">Yawlit</a>
+            <!-- Sidenav Toggler -->
+            <div class="tog tog1 justify-content-end">
+                <button mat-button class="menubtn" (click)="sidenav.toggle()">
+                    <fa-icon [icon]="faBars" transform="grow-4"></fa-icon>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="dropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                </ul>
+
+                <ul class="nav justify-content-right">
+                    <ng-template #anonymousUser>
+                        <li class="nav-item">
+                            <!-- User Icon before user signs in-->
+                            <a class="nav-link" routerLink="/signUpFirst">
+                                <img src="../../assets/img/user.png" alt="" height="40"> Sign in
+                            </a>
+                        </li>
+                    </ng-template>
+
+                    <li class="nav-item mainlink" ngbDropdown *ngIf="appUser; else anonymousUser" class=" d-flex flex-row btn-after btn-chn btn-group dropdown right-element">
+                        <div class="dropdown appusername">
+                            <a ngbDropdownToggle class="nav-link drhov dropdown-toggle mainlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- Username navbar after user signs in -->
+                                <span class="appusername">
+                                    <img src="../../assets/img/user.png" alt="" height="40">
+                                    Hi, {{appUser?.first}}
+                                </span>
+                            </a>
+                            <!-- Dropdown menu -->
+                            <div class="dropdown-menu drhovshow" aria-labelledby="dropdownMenuButton">
+                                <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/adminmain">Admin</a>
+                                <a class="dropdown-item" routerLink="/yourplans/">Your Profile</a>
+                                <a class="dropdown-item" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Navbar Toggler -->
+                <div class="tog tog2 justify-content-end">
+                    <button mat-button class="menubtn" (click)="sidenav.toggle()">
+                        <fa-icon [icon]="faBars" transform="grow-4"></fa-icon>
+
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tabs -->
+        <div class="other">
+            <div class="wrapper">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <!-- Profile tab -->
+                    <li class="nav-item  active">
+                        <a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">
+                            <p>Profile</p>
+                        </a>
+                    </li>
+                    <!-- Plans tab -->
+                    <li class="nav-item">
+                        <a class="nav-link " id="plans-tab" data-toggle="tab" href="#plans" role="tab" aria-controls="plans" aria-selected="true">
+                            <p>Plans</p>
+                        </a>
+                    </li>
+                    <!-- Plan History tab -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">
+                            <p> History</p>
+                        </a>
+                    </li>
+                    <!-- Service tab -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="false">
+                            <p>Services</p>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Tab Content -->
+                <div class="tab-content" id="myTabContent">
+                    <!-- Your Profile Tab Content -->
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="content content1">
+                            <div class="subcontent1">
+                                <div class="head">
+                                    <div class="hp hp1 image">
+                                        <img src="../../assets/img/user.png" height="100" alt="">
+                                    </div>
+                                    <div class="hp hp1 maintext">
+                                        <p>{{appUser?.first}} </p>
+                                        <p>{{appUser?.second}}</p>
+                                        <p>{{appUser?.Phone}}</p>
+                                    </div>
+                                </div>
+                                <div class="rest-text">
+                                    <div class="hp em">
+                                        <!-- <p>Email : </p> -->
+                                        <p class="bw">Email: {{appUser?.email}}</p>
+                                    </div>
+                                    <div class="em hp">
+                                        <!-- <p>Address : </p> -->
+                                        <p class="bw">Address: {{appUser?.Address}}</p>
+                                    </div>
+                                </div>
+                                <div class="hp updatebtn">
+                                    <button class="btn btn-dark fixedbtnstyle" routerLink="/updateProfile">Update
+                                        Profile</button>
+                                </div>
+                                <div class="hp logoutbtn">
+                                    <button class="btn btn-dark fixedbtnstyle" (click)="logout()">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Plans Tab Content -->
+                    <div class="tab-pane fade " id="plans" role="tabpanel" aria-labelledby="plans-tab">
+                        <div class="content content2">
+                            <div class="subcontent">
+                                <label class="switch">
+                                    <input type="checkbox" id="togBtn">
+                                    <div class="slider round" (click)="slider()">
+                                        <span class="on">UPCOMING</span>
+                                        <span class="off">ACTIVE</span>
+                                    </div>
+                                </label>
+
+                                <div class="www">
+
+                                    <div class="text" *ngIf=" customer && UpcomingOrActive?.length == 0">
+                                        <p class="noplans">
+                                            You do not have any Plans!
+                                        </p>
+                                    </div>
+
+                                    <div class="text" *ngIf="partner">
+                                        <p>
+                                            You are logged in as Partner! Log in as a Customer to view your orders!
+                                        </p>
+                                    </div>
+
+                                    <div *ngIf="customer && UpcomingOrActive?.length != 0" class="planandhist">
+                                        <div *ngFor="let u of UpcomingOrActive">
+                                            <div class="plan-details">
+                                                <ngb-accordion [closeOthers]="true" class="accrd">
+                                                    <ngb-panel id="static-1" title="{{u.PlanName}}">
+                                                        <ng-template ngbPanelContent>
+                                                            <div class="pointsinaccordian">
+                                                                <div class="pia">
+                                                                    <p class="pia1">Booking Date:</p>
+                                                                    <p class="pia2">{{u.BookingDate}} </p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">OrderId:</p>
+                                                                    <p class="pia2">{{u.order_id}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Registration No:</p>
+                                                                    <p class="pia2">{{u.RegNum}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Validity:</p>
+                                                                    <p class="pia2">{{u.Validity}} days</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">No. of WashDays:</p>
+                                                                    <p class="pia2">{{u.WashDays}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Savings:</p>
+                                                                    <p class="pia2">{{u.Saving}}%</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Price:</p>
+                                                                    <p class="pia2">{{u.Price}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Mode of Payment:</p>
+                                                                    <p class="pia2">{{u.Mode}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </ng-template>
+                                                    </ngb-panel>
+                                                </ngb-accordion>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Plan History Tab Content -->
+                    <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                        <div class="content content3">
+
+                            <div class="text" *ngIf="customer && Past?.length == 0">
+                                <p class="noplans">
+                                    You do not have any past Plans!
+                                </p>
+                            </div>
+
+                            <div class="text" *ngIf="partner">
+                                <p>
+                                    You are logged in as Partner!Log in as a Customer to view your orders!
+                                </p>
+                            </div>
+
+                            <div *ngIf="customer && Past?.length != 0" class="planandhist">
+
+
+
+                                <div *ngFor="let p of Past">
+                                    <div class="plan-details">
+                                        <ngb-accordion [closeOthers]="true" class="accrd">
+                                            <ngb-panel id="static-1" title="{{p.PlanName}}">
+                                                <ng-template ngbPanelContent>
+                                                    <div class="pointsinaccordian">
+                                                        <div class="pia">
+                                                            <p class="pia1">Booking Date:</p>
+                                                            <p class="pia2">{{p.BookingDate}} </p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">OrderId:</p>
+                                                            <p class="pia2">{{p.order_id}}</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">Registration No:</p>
+                                                            <p class="pia2">{{p.RegNum}}</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">Validity:</p>
+                                                            <p class="pia2">{{p.Validity}} days</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">No. of WashDays:</p>
+                                                            <p class="pia2">{{p.WashDays}}</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">Savings:</p>
+                                                            <p class="pia2">{{p.Saving}}%</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">Price:</p>
+                                                            <p class="pia2">{{p.Price}}</p>
+                                                        </div>
+                                                        <div class="pia">
+                                                            <p class="pia1">Mode of Payment:</p>
+                                                            <p class="pia2">{{p.Mode}}</p>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                            </ngb-panel>
+                                        </ngb-accordion>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Services Tab Content -->
+                    <div class="tab-pane fade" id="service" role="tabpanel" aria-labelledby="service-tab">
+                        <div class="content content4">
+                            <div class="subcontent">
+                                <label class="switch">
+                                    <input type="checkbox" id="togBtn">
+                                    <div class="slider round" (click)="sliderser()">
+                                        <span class="on">HISTORY</span>
+                                        <span class="off">UPCOMING</span>
+                                    </div>
+                                </label>
+                                <div class="www">
+                                    <div class="text" *ngIf="customer && PastOrUpcoming?.length == 0">
+                                        <p class="noplans">
+                                            You do not have any Services!
+                                        </p>
+                                    </div>
+                                    <div class="text" *ngIf="partner">
+                                        <p>
+                                            You are logged in as Partner!Log In as a customer to view your orders.
+                                        </p>
+                                    </div>
+
+                                    <div *ngIf="customer && PastOrUpcoming?.length != 0" class="planandhist">
+                                        <div *ngFor="let u of PastOrUpcoming">
+                                            <div class="plan-details">
+                                                <ngb-accordion [closeOthers]="true" class="accrd">
+                                                    <ngb-panel id="static-1" title="{{u.ServiceName}}">
+                                                        <ng-template ngbPanelContent>
+                                                            <div class="pointsinaccordian">
+                                                                <div class="pia">
+                                                                    <p class="pia1">Booking Date:</p>
+                                                                    <p class="pia2">{{u.BookedAt}} </p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">OrderId:</p>
+                                                                    <p class="pia2">{{u.order_id}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Registration No:</p>
+                                                                    <p class="pia2">{{u.RegNum}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Savings:</p>
+                                                                    <p class="pia2">{{u.Saving}}%</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Price:</p>
+                                                                    <p class="pia2">{{u.Price}}</p>
+                                                                </div>
+                                                                <div class="pia">
+                                                                    <p class="pia1">Mode of Payment:</p>
+                                                                    <p class="pia2">{{u.Mode}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </ng-template>
+                                                    </ngb-panel>
+                                                </ngb-accordion>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

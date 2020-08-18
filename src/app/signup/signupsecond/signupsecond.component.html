@@ -1,0 +1,27 @@
+<!-- Second page of Sign Up Process to enter the details of Sign in -->
+
+<div class="wrapper">
+    <div class="wrap-contain">
+        <img src="../../assets/img/logo-black.png" alt="">
+        <div class="box">
+            <p>SIGN IN</p><br>
+            <form class="" #formData='ngForm' (ngSubmit)="onSubmit(formData.value)">
+                <!-- Sign In input -->
+                <div class="inputBox">
+                    <div class="inside-box">
+                        <input type="number" id="phno" name="phone_number" class="form-control" [ngModel]="phone_number" required autofocus>
+                        <label>Enter your phone number <small>(ex: 9213456789)</small></label>
+                    </div>
+                    <!-- Recaptcha -->
+                    <div id="recaptcha-container"></div>
+                </div>
+                <button type="submit" class="btn btn-dark continu" [disabled]="formData.invalid">Continue</button>
+                <br><br>
+            </form>
+            <!-- Login with Google option -->
+            <div class="loginwgoogle">
+                <a id="lwg" (click)="loginwgoogle()">Or login with Google</a>
+            </div>
+        </div>
+    </div>
+</div>

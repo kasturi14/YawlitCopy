@@ -1,0 +1,66 @@
+* {
+    font-family: Wavehaus-Bk;
+}
+
+h1 {
+    padding: 2% 0;
+}
+
+.main-content {
+    text-align: center;
+    width: 100%;
+}
+
+.main-content>.main-content-head {
+    font-size: 30px;
+    padding: 2% 0;
+    font-family: Wavehaus-B;
+}
+
+
+/* Pincode Table */
+
+table,
+th,
+td {
+    border: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.table {
+    padding: 0 10%;
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    justify-content: center;
+    width: 100%;
+}
+
+thead {
+    font-family: Wavehaus-SB;
+    font-size: 22px;
+}
+
+tbody,
+.btn {
+    font-size: 18px;
+}
+
+.delbtn {
+    width: 100px;
+}
+
+td {
+    width: 50%;
+}
+
+@media(max-width: 768px) {
+    .table {
+        padding: 0 5%;
+    }
+    .delbtn {
+        margin: 0;
+        width: 100%;
+    }
+}

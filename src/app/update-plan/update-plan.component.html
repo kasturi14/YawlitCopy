@@ -1,0 +1,114 @@
+<div class="full-contain">
+    <p class="heading">Update Plan</p>
+    <div class="form-container">
+      <form #fupdated="ngForm" (ngSubmit)="saveUpdatedPlan(fupdated.value)">
+  
+  
+        <div class="form-group">
+          <label for="Vehicle"><p>Vehicle</p> </label>
+          <select class="form-control" #Vehicle="ngModel" [(ngModel)]="updatedPlan.Vehicle" name="Vehicle" id="Vehicle" required>
+            <option>Bike</option>
+            <option>Hatchback</option>
+            <option>Sedan</option>
+            <option>SUV</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="Plan"><p>Plan</p> </label>
+          <select class="form-control" #Plan="ngModel" [(ngModel)]="updatedPlan.Plan" name="Plan" id="Plan" required>
+            <option>Simple</option>
+            <option>Premium</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="PlanName"><p>Plan Name</p> </label>
+          <input #PlanName="ngModel" [(ngModel)]="updatedPlan.PlanName" name="PlanName" id="PlanName" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="PlanName.touched && PlanName.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Price"><p>Price</p> </label>
+          <input #Price="ngModel" [(ngModel)]="updatedPlan.Price" name="Price" id="Price" type="number" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Price.touched && Price.invalid">
+            Price is Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Validity"><p>Validity in days</p> </label>
+          <input #Validity="ngModel" [(ngModel)]="updatedPlan.Validity" name="Validity" id="Validity" type="number" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Validity.touched && Validity.invalid">
+            Validity is Required
+          </div>
+        </div>
+  
+  
+        <div class="form-group">
+          <label for="ValidityM"><p>No of months</p> </label>
+          <input #ValidityM="ngModel" [(ngModel)]="updatedPlan.ValidityM" name="ValidityM" id="ValidityM" type="Number" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="ValidityM.touched && ValidityM.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="WashDays"><p>Total number of WashDays</p> </label>
+          <input #WashDays="ngModel" [(ngModel)]="updatedPlan.WashDays" name="WashDays" id="WashDays" type="Number" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="WashDays.touched && WashDays.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Saving"><p>Savings</p> </label>
+          <input #Saving="ngModel" [(ngModel)]="updatedPlan.Saving" name="Saving" id="Saving" type="number" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Saving.touched && Saving.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Plan1"><p>Plan Inclusions 1</p> </label>
+          <input #Plan1="ngModel" [(ngModel)]="updatedPlan.Plan1" name="Plan1" id="Plan1" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Plan1.touched && Plan1.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="Plan2"><p>Plan Inclusions 2</p> </label>
+          <input #Plan2="ngModel" [(ngModel)]="updatedPlan.Plan2" name="Plan2" id="Plan2" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Plan2.touched && Plan2.invalid">
+            Required
+          </div>
+        </div>
+  
+  
+        <div class="form-group">
+          <label for="Plan3"><p>Plan Inclusions 3</p> </label>
+          <input #Plan3="ngModel" [(ngModel)]="updatedPlan.Plan3" name="Plan3" id="Plan3" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="Plan3.touched && Plan3.invalid">
+            Required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="imageUrl"><p>Image Url</p> </label>
+          <input #imageUrl="ngModel" [(ngModel)]="updatedPlan.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
+          <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+            <div *ngIf="imageUrl.errors.required">*Required*</div>
+            <div *ngIf="imageUrl.errors.url">Image url should be valid</div>
+          </div>
+        </div>
+  
+        <div class="buttonsave">
+          <button class="btn" [disabled]="!fupdated.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  
+  </div>

@@ -1,0 +1,38 @@
+<!-- Homepage Tabs -->
+<div class="wrapper">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom:0px">
+        <li class="nav-item">
+            <a class="nav-link" id="wash-tab" data-toggle="tab" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" role="tab" aria-controls="wash" aria-selected="true">
+                <img class="item1" src="../../assets/img/wash-transparent.png">
+                <p>WASH</p>
+            </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link " id="plans-tab" data-toggle="tab" routerLink="/plans" routerLinkActive="active" role="tab" aria-controls="plans" aria-selected="false">
+                <img src="../../assets/img/plans-transparent.png">
+                <p>
+                    PLANS
+                </p>
+            </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" id="services-tab" data-toggle="tab" routerLink="/services" routerLinkActive="active" role="tab" aria-controls="services" aria-selected="false">
+                <img src="../../assets/img/services-transparent.png">
+                <p>
+                    SERVICES
+                </p>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" id="earn-tab" data-toggle="tab" routerLink="/earns" routerLinkActive="active" role="tab" aria-controls="earn" aria-selected="false">
+                <img src="../../assets/img/earn-transparent.png">
+                <p>
+                    EARN
+                </p>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+</div>

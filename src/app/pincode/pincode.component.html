@@ -1,0 +1,29 @@
+<!-- To add a new Pincode to the database -->
+<div class="full-contain">
+    <p>Add New Pincode</p>
+    <div class="form-container">
+        <form #fnew="ngForm" (ngSubmit)="savePincode(fnew.value);fnew.reset()">
+            <!-- Pincode input -->
+            <div class="form-group">
+                <label for="Pincode"><h2>Pincode</h2></label>
+                <input #Pincode="ngModel" ngModel name="Pincode" id="Pincode" type="text" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="Pincode.touched && Pincode.invalid">
+                    Pincode is Required
+                </div>
+            </div>
+
+            <!-- Pincode input for decription-->
+            <div class="form-group">
+                <label for="Description"><p>Description</p> </label>
+                <input #Description="ngModel" ngModel name="Description" id="Description" type="text" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="Description.touched && Description.invalid">
+                    Required
+                </div>
+            </div>
+            <!-- Save Button -->
+            <div class="buttonsave">
+                <button class="btn" [disabled]="!fnew.valid">Add to List</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+h1 {
+    padding: 2% 0;
+}
+.main-content {
+    text-align: center;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid rgba(128, 128, 128, 0.4);
+  }

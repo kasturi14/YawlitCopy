@@ -1,0 +1,40 @@
+* {
+    font-family: Wavehaus-Bk;
+}
+.full-contain {
+    width: 100%;
+    padding-top: 30px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 30px;
+    padding: 5%;
+}
+
+.buttonsave {
+    text-align: center;
+}
+
+.buttonsave>.btn {
+    width: 80%;
+    background-color: black;
+    color: white;
+}
+
+.form-container {
+    padding: 20%;
+    padding-top: 0;
+    padding-bottom: 5%;
+}
+p {
+    font-size: 20px;
+}
+@media(max-width: 680px) {
+    .buttonsave>.btn {
+        width: 100%;
+    }
+    .form-container {
+        padding: 5% 10%;
+    }
+}

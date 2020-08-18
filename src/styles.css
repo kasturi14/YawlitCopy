@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* html, body { height: 100%; } */
+
+
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+* {
+    font-family: sans-serif;
+    font-family: Wavehaus-Bk;
+}
+
+@font-face {
+    font-family: Wavehaus-B;
+    src: url("assets/fonts/Wavehaus-128Bold.otf");
+}
+
+@font-face {
+    font-family: Wavehaus-EB;
+    src: url("assets/fonts/Wavehaus-158ExtraBold.otf");
+}
+
+@font-face {
+    font-family: Wavehaus-T;
+    src: url("assets/fonts/Wavehaus-28Thin.otf");
+}
+
+@font-face {
+    font-family: Wavehaus-Bk;
+    src: url("assets/fonts/Wavehaus-66Book.otf");
+}
+
+@font-face {
+    font-family: Wavehaus-L;
+    src: url("assets/fonts/Wavehaus-42Light.otf");
+}
+
+@font-face {
+    font-family: Wavehaus-SB;
+    src: url("assets/fonts/Wavehaus-95SemiBold.otf");
+}
+
+.fixedbtnstyle {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.fixedbtnstyle:hover {
+    background-color: black;
+    color: white;
+    transition: 0.25s;
+}
+
+.info-help {
+    font-size: 14px;
+    color: blue;
+}
+
+@media(max-width: 768px) {
+    .info-help {
+        font-size: 12px;
+    }
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    logo .img {
+        width: 100%!important;
+    }
+}

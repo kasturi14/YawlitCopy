@@ -1,0 +1,159 @@
+<!-- Earns tab -->
+<div class="wrapper">
+    <div id="earncomponentcarousel" class="carousel slide" data-interval="false" data-touch=false data-keyborad=false>
+        <div class="carousel-inner">
+            <!-- Carousel Page 1 -->
+            <div class="carousel-item active">
+                <div class="images">
+                    <img src="../../assets/img/earn section cont_website (1).jpg" class="img1" alt="">
+                    <img src="../../assets/img/yawlit-partner.jpg" class="img2" alt="">
+                </div>
+
+
+                <div class="nextcontrol">
+                    <a href="#earncomponentcarousel" role="button" data-slide="next">
+                        <fa-icon [icon]="faCaretRight" transform="grow-35"></fa-icon>
+                    </a>
+                </div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="prevcontrol">
+                    <a href="#earncomponentcarousel" role="button" data-slide="prev">
+                        <fa-icon [icon]="faCaretLeft" transform="grow-35"></fa-icon>
+                    </a>
+                </div>
+
+                <!-- Carousel Page 2 -->
+
+                <div class="page1">
+
+                    <div class="head-text">
+                        <p>Become a Yawlit Partner</p>
+                        <p> by driving or serving </p>
+                        <p><a class="page1links pl1" href="#"> #Yawlitians</a></p>
+                        <p>and earn EVERYDAY.</p>
+                    </div>
+                    <!-- The five points -->
+                    <div class="points">
+                        <div class="subpoints">
+                            <div class="row row1">
+                                <div class="r1 column c1">
+                                    <img src="../../assets/img/docs-transparent.png" alt="">
+                                    <p class="r1text">Get your documents verified online.</p>
+                                </div>
+                                <div class="r1 column c2">
+                                    <img src="../../assets/img/training-transparent.png" alt="">
+                                    <p class="r1text">Yawlit Training develops you and gives you new career opportunities.
+                                    </p>
+                                </div>
+                                <div class="r1 column c3">
+                                    <img src="../../assets/img/certificate-transparent.png" alt="">
+                                    <p class="r1text">Yawlit Certification guaranteed on training completion.</p>
+                                </div>
+                            </div>
+
+                            <div class="row row2">
+                                <div class="r2 column c4">
+                                    <img src="../../assets/img/hands-transparent.png" alt="">
+                                    <p class="r1text">
+                                        Easy employment in the automobile industry through Yawlit Training and Certification.
+                                    </p>
+                                </div>
+                                <div class="r2 column c5">
+                                    <img src="../../assets/img/earn-transparent.png" alt="">
+                                    <p class="r1text">Now get PAID easily with EVERYDAY MONEY WITHDRAWAL policy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Calculate button -->
+                    <ng-container *ngIf="allowedAccess; else SignInBlock">
+                        <p>
+                            <button href="#earncomponentcarousel" data-slide="next" class="salarybtn btn btn-dark fixedbtnstyle">
+                                    Click here to calculate your Salary
+                                </button>
+                        </p>
+                    </ng-container>
+                    <ng-template #SignInBlock>
+                        <p>
+                            <button (click)="check()" class="salarybtn btn btn-dark fixedbtnstyle">
+                                    Click here to calculate your Salary
+                                </button>
+                        </p>
+                    </ng-template>
+
+                    <p>Start The Change To Be The Change!
+                        <a href="#" class="yellowtext"> #YawlitNow</a></p>
+                    <p>Contact us at careers@yawlit.com or send us your feedback
+                        <a href="/#footer" class="yellowtext">here</a>.</p>
+                </div>
+            </div>
+            <!-- Carousel Page 3 -->
+            <div *ngIf="allowedAccess" class="carousel-item">
+                <div class="page3">
+                    <!-- Partner type Slider -->
+                    <label class="switch">
+                        <input type="checkbox" id="togBtn" (change)="slidyy()">
+                        <div class="slider round" >
+                            <span name="VP" class="on">Van Partner</span>
+                            <span name="sp" class="off">Service Partner</span>
+                        </div>
+                    </label>
+                    <!-- Calculation Parameters -->
+                    <div class="twd sd">
+                        <div class="text">
+                            <p> Total Working Days</p>
+
+                        </div>
+                        <div class="d widget">
+                            <mat-slider thumbLabel tickInterval="5" min="0" max="30" step="5" (change)="initializeDays($event)">
+                            </mat-slider>
+                        </div>
+                    </div>
+                    <div class="ph sd">
+                        <div class="text">
+                            <div class="subtext">
+                                <p>Peak Hours</p>
+                                <p class="secondp">(6AM - 11AM)</p>
+                            </div>
+                        </div>
+                        <div class="x widget">
+                            <mat-slider thumbLabel tickInterval="1" min="0" max="5" step="1" (change)="initializePeak($event)">
+                            </mat-slider>
+                        </div>
+                    </div>
+                    <div class="nph sd">
+                        <div class="text">
+                            <div class="subtext">
+                                <p>Non-Peak Hours</p>
+                                <p class="secondp">(1PM - 10PM)</p>
+                            </div>
+                        </div>
+                        <div class="y widget">
+                            <mat-slider thumbLabel tickInterval="3" min="0" max="9" step="3" (change)="initializeNonPeak($event)">
+                            </mat-slider>
+                        </div>
+                    </div>
+                    <div class="nowpd sd">
+                        <div class="text">
+                            <p>No. of Wash/Day</p>
+                        </div>
+                        <div class="w widget">
+                            <input type="text" disabled name="WashDays" #WashDays="ngModel" [(ngModel)]="DaysCalculated">
+                        </div>
+                    </div>
+                    <div class="me sd">
+                        <div class="text">
+                            <p>Monthly Earning</p>
+                        </div>
+                        <div class="m widget">
+                            <input type="text" disabled name="MonthlyEarning" #MonthlyEarning="ngModel" [(ngModel)]="MonthlyPay">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

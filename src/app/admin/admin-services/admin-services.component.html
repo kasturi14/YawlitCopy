@@ -1,0 +1,99 @@
+<div class="main-content">
+    <h1>All Services</h1>
+    <div class="addbtndiv">
+        <button class="addbtn btn btn-dark fixedbtnstyle" routerLink="/addServices">Add a New Service</button>
+    </div>
+    <div id="adminServicecarousel" class="carousel slide" data-interval=false>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <p style="font-weight: bold;">Select the vehicle type below</p>
+                    <!-- helper information text -->
+                    <div class="info-help" style="padding-top: 1%;">
+                        <p>Select the type of vehicle to view the services associated with it</p>
+                    </div>
+                    <!-- Vehicle Types -->
+                    <div class="inner-contain">
+                        <ul class="row step1vehicleul">
+                            <li class="column colstep">
+                                <a class="vehiclelink" href="#adminServicecarousel" role="button" data-slide="next" (click)="setBike()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/bike-transparent.png">
+                                    </div>
+                                    <p>Bike</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminServicecarousel" role="button" data-slide="next" (click)="setHatchback()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/hatchback-transparent.png">
+                                    </div>
+                                    <p>Hatchback</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminServicecarousel" role="button" data-slide="next" (click)="setSedan()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/sedan-transparent.png">
+                                    </div>
+                                    <p>Sedan</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="vehiclelink" href="#adminServicecarousel" role="button" data-slide="next" (click)="setSUV()">
+                                    <div class="image">
+                                        <img src="../../../assets/img/suv-transparent.png">
+                                    </div>
+                                    <p>SUV</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Simple and Premium slider -->
+            <div class="carousel-item">
+                <div class="mainsliding">
+                    <div class="sliding">
+                        <p>Simple</p>
+                        <input type="checkbox" (click)="slider()" class="switchinput">
+                        <p>Premium</p>
+                    </div>
+                </div>
+                <!-- Services table -->
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Services</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of services$ | async">
+                                <td class="Service-text-td">
+                                    <div class="Service-text">
+                                        <p>{{p.ServiceName}}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="btns">
+                                        <button class="updatebtn btn btn-dark fixedbtnstyle" (click)="editService(p.key)">Update</button>
+                                        <button class="delbtn btn btn-dark fixedbtnstyle" (click)="deleteService(p.key)">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Back Button -->
+                <div class="prevcontrol">
+                    <a class="cccp" href="#adminServicecarousel" role="button" data-slide="prev" style="color: black; opacity: 1;">
+                        <img src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/previous-512.png" alt="" height="20" width="20">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

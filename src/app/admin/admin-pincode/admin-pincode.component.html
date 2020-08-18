@@ -1,0 +1,54 @@
+<div class="main-content">
+    <div class="main-content-head">
+        <p>All Pincodes</p>
+        <!-- helper information text  -->
+        <div class="info-help">
+            <p>All the pincodes where we are servicable</p>
+        </div>
+
+    </div>
+    <div class="addbtndiv">
+        <button class="addbtn btn btn-dark fixedbtnstyle" routerLink="/addPincode">Add a Pincode</button>
+    </div>
+    <!-- helper information text  -->
+    <div class="info-help" style="padding-top: 1%;">
+        <p>Add a new pincode where we will be servicable</p>
+    </div>
+    <br>
+    <!-- Pincode table -->
+    <div class="table">
+        <p><input #query (keyup)="filterBy(query.value)" type="text" class="form-control" placeholder="Type the Pincode to search"></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pincodes</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <!-- Pinocode table body -->
+            <tbody *ngIf="pincodes$ | async; let pincodes; else loading">
+                <!-- For pagination -->
+                <tr *ngFor="let p of pincodes|paginate: { itemsPerPage: 5, currentPage: pa }; let i = index">
+                    <td class="plan-text-td">
+                        <div class="plan-text">
+                            <p>{{p.payload.val().Pincode}}</p>
+                        </div>
+                    </td>
+                    <td class="plan-text-td">
+                        <div class="plan-text">
+                            <p>{{p.payload.val().Description}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btns">
+                            <button class="delbtn btn btn-dark fixedbtnstyle" (click)="delete(p.payload.key)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #loading>Loadin&hellip;</ng-template>
+        <pagination-controls (pageChange)="pa = $event"></pagination-controls>
+    </div>
+</div>

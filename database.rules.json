@@ -1,0 +1,46 @@
+{
+  "rules": {
+    "users":{
+      "$uid":{
+        ".read":"auth!=null && $uid===auth.uid",
+        ".write":"auth!=null && $uid===auth.uid"
+      }
+    },
+      "Partners":
+      {
+        "$uid":{
+        ".read":"auth!=null && $uid===auth.uid",
+        ".write":"auth!=null && $uid===auth.uid"
+      }
+      },
+        "plans":
+        {
+          ".read":"true",
+            ".write":"root.child('users').child(auth.uid).child('isAdmin').val() ===true"
+        },
+          "services":
+          {
+            ".read":"true",
+                ".write":"root.child('users').child(auth.uid).child('isAdmin').val() ===true"
+          },
+            "Pincode":
+            {
+              ".read":"true",
+                ".write":"root.child('users').child(auth.uid).child('isAdmin').val() ===true"
+            },
+              "Orders":
+              {
+                ".read":"auth!=null",
+                ".write":"auth!=null"
+              },
+                "OrdersService":
+                {
+                  ".read":"auth!=null",
+                    ".write":"auth!=null"
+                },
+                  "messages":{
+                    ".read":"auth!=null",
+                      ".write":"true"
+                  }
+  }
+}
